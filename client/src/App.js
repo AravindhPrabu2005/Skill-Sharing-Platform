@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import SignupPage from './components/Signup';
 import LoginPage from './components/Loginpage';
 import Indexpage from './components/userDashboard/Indexpage';
-import Adminpage from './components/Adminpage';
 import AdminSignupPage from './components/AdminSignup';
 import LandingPage from './components/LandingPage';
 
@@ -53,6 +52,7 @@ const App = () => {
                     <Route path="manage" element={ <ManageCourses />} />
                     <Route path="users" element={ <ManageCourses />} />
                     <Route path="settings" element={ <ManageCourses />} />
+                    <Route path="skillbarter" element={ <SkillBarter /> } />
                 </Route>
             </Routes>
         </Router>
