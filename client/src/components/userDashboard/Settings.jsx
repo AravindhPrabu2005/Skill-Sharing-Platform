@@ -1,8 +1,11 @@
 import React from 'react'
+import Meet from './Meet'
 
 const Settings = () => {
   return (
-    <div className=' bg-gray-100 h-screen w-full items-center justify-center flex'>Settings</div>
+    <div className=' bg-gray-100 '>
+       <Meet />
+    </div>
   )
 }
 

@@ -25,17 +25,18 @@ router.get('/posts', async (req, res) => {
 });
 
 // Accept a barter deal
-router.post('/accept/:id', async (req, res) => {
+router.post('/accept', async (req, res) => {
     try {
-        const post = await SkillBarter.findById(req.params.id);
-        if (!post) return res.status(404).json({ error: "Post not found" });
-
-        post.acceptedBy = req.body.userId;
+        const {id , userId} = req.body;
+        console.log(id, userId);
+        
+        const post = await SkillBarter.findById(id);
+        if (!post) return res.json({ error: "Post not found" }).status(404);
+        post.acceptedBy = userId;
         await post.save();
-
         res.json(post);
     } catch (error) {
-        res.status(500).json({ error: "Failed to accept deal" });
+        res.json({ error: "Failed to accept deal" }).status(500);
     }
 });
 

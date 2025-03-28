@@ -9,6 +9,7 @@ import {
   Sparkle,
   Sparkles,
   Users,
+  Video,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
@@ -168,9 +169,13 @@ const SideBar = () => {
             <Blend size={25} />
             <p className="text-lg font-bold">Skill Barter</p>
           </Link>
+          <Link className=" flex gap-2" to={"/dashboard/friends"}>
+            <Users size={25} />
+            <p className="text-lg font-bold">Network</p>
+          </Link>
           <Link className=" flex gap-2" to={"/dashboard/settings"}>
-            <Settings size={25} />
-            <p className="text-lg font-bold">Settings</p>
+            <Video size={25} />
+            <p className="text-lg font-bold">Meet</p>
           </Link>
         </ul>
       </div>

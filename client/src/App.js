@@ -21,6 +21,8 @@ import Community from './components/userDashboard/Community';
 
 import CourseDetail from './components/userDashboard/CourseDetail';
 import SkillBarter from './components/userDashboard/SkillBarter';
+import Friends from './components/userDashboard/Friends';
+import Chat from './components/userDashboard/Chat';
 
 const App = () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -43,6 +45,8 @@ const App = () => {
                     <Route path="community" element={<Community />} />
                     <Route path="course/:id" element={<CourseDetail />} />
                     <Route path="skillbarter" element={<SkillBarter />} />
+                    <Route path="friends" element={<Friends />} />
+                    <Route path="chat/:id" element={<Chat />} />
 
                 </Route>
 

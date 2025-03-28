@@ -28,6 +28,8 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+
+
 // Update Student Profile
 router.put('/:id', async (req, res) => {
     try {

@@ -45,7 +45,7 @@ const Community = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen font-space bg-gray-200 w-full">
       <div className="flex-1 max-w-5xl mx-auto p-6 flex flex-col">
         <h2 className="text-3xl font-bold mb-6">Community Discussions</h2>
 
