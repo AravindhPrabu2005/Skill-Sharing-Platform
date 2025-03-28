@@ -18,6 +18,8 @@ import CreateCourse from './components/AdminDashboard/CreateCourse';
 import ManageCourses from './components/AdminDashboard/ManageCourse';
 import AdminIndexPage from './components/AdminDashboard/IndexPage';
 import Layout2 from './components/layout/Layout2';
+import Community from './components/userDashboard/Community';
+import CourseDetail from './components/userDashboard/CourseDetail';
 const App = () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
@@ -37,6 +39,7 @@ const App = () => {
                     <Route path="schedule" element={<Schedule />} />
                     <Route path="settings" element={<Settings />} />
                     <Route path="community" element={<Community />} />
+                    <Route path="course/:id" element={<CourseDetail />} />
                 </Route>
 
                 <Route path="/admin" element={ <Layout2 />} >

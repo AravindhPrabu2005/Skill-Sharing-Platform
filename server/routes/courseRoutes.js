@@ -14,6 +14,8 @@ router.post('/create', async (req, res) => {
         await course.save();
         res.json(course);
     } catch (err) {
+
+        
         res.json({ error: err.message });
     }
 });
@@ -22,7 +24,7 @@ router.post('/create', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const courses = await Course.find().populate('teacher', 'name');
-        res.status(200).json(courses);
+        res.json(courses);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
