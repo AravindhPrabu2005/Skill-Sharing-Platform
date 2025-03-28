@@ -7,6 +7,7 @@ import {
   Settings,
   Sparkle,
   Sparkles,
+  Users,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
@@ -157,6 +158,10 @@ const SideBar = () => {
           <Link className=" flex gap-2" to={"/dashboard/aitutor"}>
             <Sparkles size={25} />
             <p className="text-lg font-bold">AI Tutor</p>
+          </Link>
+          <Link className=" flex gap-2" to={"/dashboard/community"}>
+            <Users size={25} />
+            <p className="text-lg font-bold">Community</p>
           </Link>
           <Link className=" flex gap-2" to={"/dashboard/settings"}>
             <Settings size={25} />
