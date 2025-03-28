@@ -9,8 +9,8 @@ router.post('/create', async (req, res) => {
     try {
         console.log("Creating course with data:", req.body);
         
-        const { title, description, teacher, price, category, gmeetLink } = req.body;
-        const course = new Course({ title, description, teacher, price, category, gmeetLink });
+        const { image, title, description, teacher, price, category, gmeetLink } = req.body;
+        const course = new Course({ image, title, description, teacher, price, category, gmeetLink });
         await course.save();
         res.json(course);
     } catch (err) {
