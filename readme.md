@@ -4,6 +4,8 @@ SkillHive is a skill-sharing platform designed for instructors and learners to c
 
 **Live Link**: [SkillHive](https://skillhive-three.vercel.app/)
 
+
+![Alt Text](./assets//img1.png)
 ## Features
 
 - **For Instructors**:
@@ -107,4 +109,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For questions or support, please contact us
 
 
-![Alt Text](./assets//img1.png)
