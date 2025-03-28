@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BarChart, BookOpen, Users, Settings, LogOut, Shield } from "lucide-react";
+import { BarChart, BookOpen, Users, Settings, LogOut, Blend, LibraryBig } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../axiosInstance";
 
@@ -37,10 +37,15 @@ const AdminSidebar = () => {
           <p className="text-lg font-bold">Create Courses</p>
         </Link>
         <Link className="flex gap-2" to={"/admin/Manage"}>
-          <BookOpen size={25} />
+        <LibraryBig size={25} />
           <p className="text-lg font-bold">Manage Courses</p>
         </Link>
+        <Link className=" flex gap-2" to={"/admin/skillbarter"}>
+            <Blend size={25} />
+            <p className="text-lg font-bold">Skill Barter</p>
+          </Link>
         <Link className="flex gap-2" to={"/admin/users"}>
+        
           <Users size={25} />
           <p className="text-lg font-bold">Manage Users</p>
         </Link>

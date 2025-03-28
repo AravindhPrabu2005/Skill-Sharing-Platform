@@ -9,6 +9,7 @@ const teacherRoutes = require("./routes/TeacherRoutes");
 const CourseRegistration = require("./routes/CourseRegister");
 const Calender = require("./routes/Calender");
 const Community = require("./routes/CommunityRoutes");
+const skillBarterRoutes = require("./routes/skillBarterRoutes");
 const app = express();
 const port = 3001;
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use('/courses', courseRoutes);
 app.use('/api/registercourse', CourseRegistration);
 app.use('/api/calender', Calender);
 app.use('/api/community', Community);
+app.use('/api/skillbarter', skillBarterRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI,{
