@@ -20,7 +20,10 @@ const runRoadmap = require("./LLM/Roadmapai");
 const GenerateQuiz = require("./LLM/Quiz");
 
 app.use(cors());
-
+mongoose.connect(process.env.MONGO_URI,{
+    dbName: "skillshare",
+  }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
+app.get("/", (req, res) => res.send("Welcome to SkillHive API"));
 app.use('/api/users', userRoutes);
 app.use('/api/teacher', teacherRoutes);
 app.use('/courses', courseRoutes);
@@ -30,9 +33,6 @@ app.use('/api/community', Community);
 app.use('/api/skillbarter', skillBarterRoutes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI,{
-    dbName: "skillshare",
-  }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
 
 // User Schema & Model
 const userSchema = new mongoose.Schema({ email: String, password: String });
