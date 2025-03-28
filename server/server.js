@@ -19,7 +19,7 @@ app.use(cors());
 app.use('/api/users', userRoutes);
 app.use('/api/teacher', teacherRoutes);
 app.use('/courses', courseRoutes);
-app.use('/api/courses', CourseRegistration);
+app.use('/api/registercourse', CourseRegistration);
 app.use('/api/calender', Calender);
 
 // MongoDB Connection
@@ -74,13 +74,15 @@ app.post("/login", async (req, res) => {
             success: true, 
             token, 
             user: {
+                userId: admin._id,
                 isAdmin: true,
                 isLoggedIn: true,
                 email: admin.email
+
             }
         });
     }
-
+    
     // If not found in either collection
     return res.status(401).json({ success: false, error: "Invalid credentials" });
 });

@@ -7,9 +7,11 @@ const LandingPage = () => {
   return (
     <main className=' font-space'>
      
-       <nav className='flex'>
-        <p className=' p-10 text-2xl  font-space font-bold'>SkillHive</p>
-
+       <nav className='flex justify-between p-10'>
+        <p className='text-2xl font-space font-bold'>SkillHive</p>
+        <Link to='/login'>
+          <button className='bg-primary text-white px-4 py-2 rounded-lg'>Login</button>
+        </Link>
        </nav>
     
         <div className=' h-[70vh] flex flex-col gap-10 items-center justify-center w-full'>
