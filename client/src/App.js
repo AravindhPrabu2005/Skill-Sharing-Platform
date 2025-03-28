@@ -19,10 +19,10 @@ import ManageCourses from './components/AdminDashboard/ManageCourse';
 import AdminIndexPage from './components/AdminDashboard/IndexPage';
 import Layout2 from './components/layout/Layout2';
 import Community from './components/userDashboard/Community';
-<<<<<<< HEAD
+
 import CourseDetail from './components/userDashboard/CourseDetail';
-=======
->>>>>>> 807d9c693e56e341716b8a852b451d91ab7afcd6
+import SkillBarter from './components/userDashboard/SkillBarter';
+
 const App = () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
@@ -41,12 +41,10 @@ const App = () => {
                     <Route path="mycourses" element={<Mycourses />} />
                     <Route path="schedule" element={<Schedule />} />
                     <Route path="settings" element={<Settings />} />
-<<<<<<< HEAD
                     <Route path="community" element={<Community />} />
                     <Route path="course/:id" element={<CourseDetail />} />
-=======
-                    <Route path="community" element={<Community /> } />
->>>>>>> 807d9c693e56e341716b8a852b451d91ab7afcd6
+                    <Route path="skillbarter" element={<SkillBarter />} />
+
                 </Route>
 
                 <Route path="/admin" element={ <Layout2 />} >

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  Blend,
   BookOpen,
   CalendarSearch,
   House,
@@ -162,6 +163,10 @@ const SideBar = () => {
           <Link className=" flex gap-2" to={"/dashboard/community"}>
             <Users size={25} />
             <p className="text-lg font-bold">Community</p>
+          </Link>
+          <Link className=" flex gap-2" to={"/dashboard/skillbarter"}>
+            <Blend size={25} />
+            <p className="text-lg font-bold">Skill Barter</p>
           </Link>
           <Link className=" flex gap-2" to={"/dashboard/settings"}>
             <Settings size={25} />
