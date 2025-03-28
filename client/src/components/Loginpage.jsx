@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
+import axiosInstance from "../axiosInstance";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -14,26 +15,26 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_Backend_URI}/login`, {
+      const response = await axiosInstance.post(`/login`, {
         email: formData.email,
-        password: formData.password
+        password: formData.password,
       });
 
       if (response.data.success) {
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('isAdmin', response.data.user.isAdmin.toString());
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("isAdmin", response.data.user.isAdmin.toString());
 
         if (response.data.user.isAdmin) {
-          window.location.href = '/admin';
+          window.location.href = "/admin";
         } else {
-          window.location.href = '/';
+          window.location.href = "/";
         }
       } else {
-        alert('Login failed. Please try again.');
+        alert("Login failed. Please try again.");
       }
     } catch (error) {
-      console.error('Error logging in:', error);
-      alert('Login failed. Please try again.');
+      console.error("Error logging in:", error);
+      alert("Login failed. Please try again.");
     }
   };
 
@@ -66,7 +67,10 @@ export default function LoginPage() {
           </button>
         </form>
         <p className="text-center text-gray-600">
-          Don't have an account? <a href="/signup" className="text-blue-500">Sign up</a>
+          Don't have an account?{" "}
+          <a href="/signup" className="text-blue-500">
+            Sign up
+          </a>
         </p>
       </div>
     </div>

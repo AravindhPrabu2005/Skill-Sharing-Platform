@@ -5,14 +5,16 @@ const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 const app = express();
-const port = 3000;
+const port = 3001;
 app.use(express.json());
 
 const cors = require("cors");
 app.use(cors());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
+mongoose.connect(process.env.MONGO_URI,{
+    dbName: "skillshare",
+  }).then(() => console.log("MongoDB connected")).catch((err) => console.log(err));
 
 // User Schema & Model
 const userSchema = new mongoose.Schema({ email: String, password: String });
