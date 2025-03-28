@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const UserProfileSchema = new mongoose.Schema({
+    id:{ type:String},
     name: { type: String, required: true },
     role: { type: String, enum: ['student'], required: true },
     bio: { type: String },

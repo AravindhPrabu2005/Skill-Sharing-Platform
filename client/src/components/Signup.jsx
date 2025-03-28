@@ -22,7 +22,7 @@ export default function SignupPage() {
         password: formData.password,
       });
       alert(response.data.message);
-
+      nav('/login')
     } catch (error) {
       console.error("Error registering user:", error);
       alert("Registration failed. Please try again.");
@@ -30,11 +30,11 @@ export default function SignupPage() {
   };
 
   useEffect(() => {
-     nav('/login')
+    
   },[])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-primary">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-2xl shadow-lg">
         <h2 className="text-2xl font-bold text-center text-gray-800">
           Sign Up
@@ -66,14 +66,14 @@ export default function SignupPage() {
           />
           <button
             type="submit"
-            className="w-full py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition duration-300"
+            className="w-full py-2 text-white bg-primary rounded-lg hover:bg-blue-600 transition duration-300"
           >
             Sign Up
           </button>
         </form>
         <p className="text-center text-gray-600">
           Already have an account?{" "}
-          <a href="/login" className="text-blue-500">
+          <a href="/login" className="text-primary">
             Login
           </a>
         </p>

@@ -54,6 +54,7 @@ app.post("/login", async (req, res) => {
             success: true, 
             token, 
             user: {
+                userId: user._id,
                 isAdmin: false,
                 isLoggedIn: true,
                 email: user.email
