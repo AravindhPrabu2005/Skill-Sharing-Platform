@@ -7,6 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const teacherRoutes = require("./routes/TeacherRoutes");
 const CourseRegistration = require("./routes/CourseRegister");
+const Calender = require("./routes/Calender");
 
 const app = express();
 const port = 3001;
@@ -19,6 +20,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/teacher', teacherRoutes);
 app.use('/courses', courseRoutes);
 app.use('/api/courses', CourseRegistration);
+app.use('/api/calender', Calender);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI,{
