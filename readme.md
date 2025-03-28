@@ -2,7 +2,7 @@
 
 SkillHive is a skill-sharing platform designed for instructors and learners to connect, share knowledge, and grow together. The platform provides tools for creating courses, registering for classes, and fostering a community of learning.
 
-**Live Link**: [SkillHive](https://skillhive-vh47.onrender.com/)
+**Live Link**: [SkillHive](https://skillhive-three.vercel.app/)
 
 ## Features
 
