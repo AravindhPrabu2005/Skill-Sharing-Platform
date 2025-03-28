@@ -14,6 +14,7 @@ import Mycourses from './components/userDashboard/Mycourses';
 import Schedule from './components/userDashboard/Schedule';
 import Settings from './components/userDashboard/Settings';
 import Profile from './components/userDashboard/Profile';
+import Community from './components/userDashboard/Community';
 const App = () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
@@ -32,6 +33,7 @@ const App = () => {
                     <Route path="mycourses" element={<Mycourses />} />
                     <Route path="schedule" element={<Schedule />} />
                     <Route path="settings" element={<Settings />} />
+                    <Route path="community" element={<Community />} />
                 </Route>
 
                 <Route path="/admin" element={isLoggedIn && isAdmin ? <Adminpage /> : <Navigate to="/login" />} />
