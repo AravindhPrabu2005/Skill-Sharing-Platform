@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
+const userRoutes = require("./routes/userRoutes");
+const courseRoutes = require("./routes/courseRoutes");
+const teacherRoutes = require("./routes/TeacherRoutes");
 
 const app = express();
 const port = 3001;
@@ -10,6 +13,10 @@ app.use(express.json());
 
 const cors = require("cors");
 app.use(cors());
+
+app.use('/api/users', userRoutes);
+app.use('/api/teacher', teacherRoutes);
+app.use('/courses', courseRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI,{
