@@ -8,12 +8,14 @@ const courseRoutes = require("./routes/courseRoutes");
 const teacherRoutes = require("./routes/TeacherRoutes");
 const CourseRegistration = require("./routes/CourseRegister");
 const Calender = require("./routes/Calender");
-
 const app = express();
 const port = 3001;
 app.use(express.json());
 
 const cors = require("cors");
+const runllm = require("./LLM/Gemini");
+const runRoadmap = require("./LLM/Roadmapai");
+
 app.use(cors());
 
 app.use('/api/users', userRoutes);
@@ -112,7 +114,7 @@ app.post("/admin/register", async (req, res) => {
 const authMiddleware = (req, res, next) => {
     const token = req.header("Authorization")?.split(" ")[1];
     if (!token) return res.status(401).json({ error: "Access denied" });
-
+     
     try {
         req.user = jwt.verify(token, process.env.JWT_SECRET);
         next();
@@ -120,6 +122,25 @@ const authMiddleware = (req, res, next) => {
         res.status(400).json({ error: "Invalid token" });
     }
 };
+
+
+app.post("/ai",async(req,res)=>{
+    const {prompt} = req.body;
+    const result = await runllm(prompt)
+    res.json({
+        result
+    })
+})
+
+app.post("/roadmap",async(req,res)=>{
+    const {technology} = req.body;
+
+    const result = await runRoadmap(technology)
+    return res.json({
+        result
+    })
+}
+)
 
 // Protected Route
 app.get("/protected", authMiddleware, (req, res) => {
