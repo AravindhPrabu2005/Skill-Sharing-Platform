@@ -11,7 +11,7 @@ router.post('/create', async (req, res) => {
         await student.save();
         res.status(201).json(student);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.json({ error: err.message }).status(500);
     }
 });
 

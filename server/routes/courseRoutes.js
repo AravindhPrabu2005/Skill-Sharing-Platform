@@ -7,12 +7,14 @@ const router = express.Router();
 // CREATE COURSE (Teacher Only)
 router.post('/create', async (req, res) => {
     try {
+        console.log("Creating course with data:", req.body);
+        
         const { title, description, teacher, price, category, gmeetLink } = req.body;
         const course = new Course({ title, description, teacher, price, category, gmeetLink });
         await course.save();
-        res.status(201).json(course);
+        res.json(course);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.json({ error: err.message });
     }
 });
 
@@ -25,6 +27,17 @@ router.get('/', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+// GET COURSES IN TEACHER ACCOUNT
+router.get('/admin/:adminId', async (req, res) => {
+     try {
+         const { adminId } = req.params;
+         const courses = await Course.find({ teacher: adminId }).populate('teacher', 'name');
+         res.status(200).json(courses);
+     } catch (err) {
+         res.status(500).json({ error: err.message });
+     }
+ });
 
 // GET COURSE BY ID
 router.get('/:id', async (req, res) => {
