@@ -6,6 +6,7 @@ require("dotenv").config();
 const userRoutes = require("./routes/userRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const teacherRoutes = require("./routes/TeacherRoutes");
+const CourseRegistration = require("./routes/CourseRegister");
 
 const app = express();
 const port = 3001;
@@ -17,6 +18,7 @@ app.use(cors());
 app.use('/api/users', userRoutes);
 app.use('/api/teacher', teacherRoutes);
 app.use('/courses', courseRoutes);
+app.use('/api/courses', CourseRegistration);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI,{
