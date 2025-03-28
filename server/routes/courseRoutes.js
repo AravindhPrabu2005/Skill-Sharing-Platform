@@ -1,6 +1,7 @@
 const express = require('express');
 const Course = require('../models/course');
 const UserProfile = require('../models/UserProfile');
+const GenerateQuiz = require('../LLM/Quiz');
 
 const router = express.Router();
 
@@ -10,13 +11,17 @@ router.post('/create', async (req, res) => {
         console.log("Creating course with data:", req.body);
         
         const { image, title, description, teacher, price, category, gmeetLink } = req.body;
-        const course = new Course({ image, title, description, teacher, price, category, gmeetLink });
+        const quiz = await GenerateQuiz(description);
+        const course = new Course({ image, title, description, teacher, price, category, gmeetLink ,quiz: quiz });
+        console.log("Quiz generated:", quiz);
+        
+       
         await course.save();
         res.json(course);
     } catch (err) {
 
         
-        res.json({ error: err.message });
+        res.json({ error: err.message }).status(500);
     }
 });
 

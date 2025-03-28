@@ -16,6 +16,7 @@ app.use(express.json());
 const cors = require("cors");
 const runllm = require("./LLM/Gemini");
 const runRoadmap = require("./LLM/Roadmapai");
+const GenerateQuiz = require("./LLM/Quiz");
 
 app.use(cors());
 
@@ -146,6 +147,13 @@ app.post("/roadmap",async(req,res)=>{
 }
 )
 
+app.post("/quiz",async(req,res)=>{
+    const {prompt} = req.body;
+    const result = await GenerateQuiz(prompt)
+    res.json({
+        result
+    })
+})
 // Protected Route
 app.get("/protected", authMiddleware, (req, res) => {
     res.json({ message: "Protected data", user: req.user });
