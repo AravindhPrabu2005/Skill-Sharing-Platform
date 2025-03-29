@@ -31,7 +31,7 @@ const CourseDetail = () => {
       }, 30000);
 
       const progressInterval = setInterval(() => {
-        setProgress((prev) => (prev < 100 ? prev + 3.33 : 100)); // 100% in 30s
+        setProgress((prev) => (prev < 100 ? prev + 1.6 : 100)); // 100% in 30s
       }, 1000);
 
       return () => {
