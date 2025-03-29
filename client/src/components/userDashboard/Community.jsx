@@ -87,7 +87,7 @@ const Community = () => {
           ))}
         </div>
 
-        <div className="fixed bottom-0 left-1/5 w-4/5 bg-white p-4 border-t shadow-lg flex items-center">
+        <div className="fixed  bottom-3  left-72 w-4/5  p-4  flex items-center">
           <textarea
             className="flex-grow p-2 border rounded-md mr-4"
             rows="2"
@@ -96,7 +96,7 @@ const Community = () => {
             onChange={(e) => setNewPost(e.target.value)}
           ></textarea>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg mr-4"
+            className="px-4 py-2  bg-primary text-white rounded-lg mr-4"
             onClick={handlePostSubmit}
           >
             Post
